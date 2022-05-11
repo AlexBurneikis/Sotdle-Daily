@@ -1,6 +1,13 @@
 <script>
 	import { onMount } from "svelte";
 	let Islands = [];
+	let dailyNumber = [
+		14, 30, 38, 27, 45, 43, 59, 9, 20, 34, 46, 69, 32, 40, 52, 42, 26, 57,
+		18, 56, 74, 78, 48, 41, 62, 55, 4, 25, 12, 65, 10, 66, 21, 68, 28, 73,
+		51, 71, 47, 77, 7, 22, 31, 5, 54, 50, 23, 3, 0, 1, 75, 64, 79, 33, 58,
+		29, 63, 49, 8, 67, 13, 44, 37, 60, 17, 6, 72, 16, 24, 2, 35, 11, 70, 19,
+		53, 61, 36, 15, 39, 76,
+	];
 
 	let answer;
 	let imgsrc;
@@ -19,7 +26,15 @@
 	let guessDirection = ["", "", "", "", "", ""];
 
 	function setup() {
-		answer = Islands[Math.floor(Math.random() * Islands.length)];
+		var now = new Date();
+		var start = new Date(now.getFullYear(), 0, 0);
+		var diff = now - start;
+		var oneDay = 1000 * 60 * 60 * 24;
+		var day = Math.floor(diff / oneDay);
+		while (day > 79) {
+			day -= 79;
+		}
+		answer = Islands[dailyNumber[day]];
 		imgsrc = answer.Image;
 		guessno = 1;
 	}
@@ -249,10 +264,10 @@
 	<footer>
 		<h6>
 			Alex Burneikis 2022 <a
-				href="https://github.com/alexburneikis/sotdle">Github</a
+				href="https://github.com/alexburneikis/sotdle-daily">Github</a
 			>,
 			<a
-				href="https://github.com/AlexBurneikis/Sotdle/blob/main/README.md"
+				href="https://github.com/AlexBurneikis/Sotdle-daily/blob/main/README.md"
 				>Help</a
 			>
 		</h6>

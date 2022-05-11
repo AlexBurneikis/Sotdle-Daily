@@ -3,7 +3,7 @@ Sea of Thieves wordle clone
 
 inspired by worldle
 
-www.sotdle.xyz
+www.daily.sotdle.xyz
 
 ## Help
 You get 6 guesses to get the correct answer.

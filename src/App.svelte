@@ -229,7 +229,7 @@
 			attempts = 'x'
 			}
 			alert('Copied to clipboard.')
-			shareResults(`Sotdle ${day} ${attempts}/6 \nhttps://sotdle.xyz`);
+			shareResults(`Sotdle ${day} ${attempts}/6 \nhttps://daily.sotdle.xyz`);
 		}
 	}
 </script>

@@ -23,7 +23,7 @@
 
 	let buttonText = "Guess";
 
-	let boxes = ["", "", "", "", "", ""]
+	let boxes = ["", "", "", "", "", ""];
 	let guessParagraph = ["", "", "", "", "", ""];
 	let gpClass = ["", "", "", "", "", ""];
 	let guessDirection = ["", "", "", "", "", ""];
@@ -198,8 +198,7 @@
 				if (is_same_region(guessIsland)) {
 					gpClass[guessno - 1] = "close";
 					boxes[guessno - 1] = "🟨";
-				}
-				else {
+				} else {
 					boxes[guessno - 1] = "⬜";
 				}
 
@@ -231,10 +230,12 @@
 			document.location.reload();
 		} else if (guessno === 9) {
 			if (attempts === 7) {
-			attempts = 'x'
+				attempts = "x";
 			}
-			alert('Copied to clipboard.')
-			shareResults(`Sotdle ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`);
+			alert("Copied to clipboard.");
+			shareResults(
+				`Sotdle ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`
+			);
 		}
 	}
 </script>
@@ -288,9 +289,7 @@
 				href="https://github.com/AlexBurneikis/Sotdle-daily/blob/main/README.md"
 				>Help</a
 			>,
-			<a
-				href="https://sotdle.xyz"
-				>Infinite</a>
+			<a href="https://sotdle.xyz">Infinite</a>
 		</h6>
 	</footer>
 </main>

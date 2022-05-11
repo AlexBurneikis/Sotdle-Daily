@@ -8,9 +8,12 @@
 		29, 63, 49, 8, 67, 13, 44, 37, 60, 17, 6, 72, 16, 24, 2, 35, 11, 70, 19,
 		53, 61, 36, 15, 39, 76,
 	];
+	let x;
 
 	let answer;
 	let imgsrc;
+	let attempts;
+	let day;
 
 	let clicked;
 	let focused;
@@ -30,7 +33,7 @@
 		var start = new Date(now.getFullYear(), 0, 0);
 		var diff = now - start;
 		var oneDay = 1000 * 60 * 60 * 24;
-		var day = Math.floor(diff / oneDay);
+		day = Math.floor(diff / oneDay);
 		while (day > 79) {
 			day -= 79;
 		}
@@ -172,6 +175,9 @@
 	function showAnswer() {
 		alert("The answer was " + answer.Name + ".");
 	}
+	function shareResults(x) {
+		navigator.clipboard.writeText(x);
+	}
 
 	function guessButton() {
 		if (guessno <= 6) {
@@ -179,8 +185,9 @@
 				if (isWin(guess)) {
 					gpClass[guessno - 1] = "win";
 					guessParagraph[guessno - 1] = guess;
-					guessno = 8;
-					buttonText = "Again";
+					attempts = guessno;
+					guessno = 9;
+					buttonText = "Share";
 					blurred = false;
 					return;
 				}
@@ -200,8 +207,8 @@
 
 				guessParagraph[guessno - 1] = guess + " ";
 				guessDirection[guessno - 1] = direction(guessIsland);
-
 				guessno += 1;
+				attempts = guessno;
 				if (guessno === 7) {
 					buttonText = "Answer";
 					blurred = false;
@@ -211,12 +218,18 @@
 			}
 		} else if (guessno === 7) {
 			showAnswer();
-			buttonText = "Again";
-			guessno = 8;
+			buttonText = "Share";
+			guessno = 9;
 			blurred = false;
 			return;
 		} else if (guessno === 8) {
 			document.location.reload();
+		} else if (guessno === 9) {
+			if (attempts === 7) {
+			attempts = 'x'
+			}
+			alert('Copied to clipboard.')
+			shareResults(`Sotdle ${day} ${attempts}/6 \nhttps://sotdle.xyz`);
 		}
 	}
 </script>

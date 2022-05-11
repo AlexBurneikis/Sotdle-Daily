@@ -200,7 +200,7 @@
 					boxes[guessno - 1] = "🟨";
 				}
 				else {
-					boxes[guessno - 1] = "⬛";
+					boxes[guessno - 1] = "⬜";
 				}
 
 				const index = Islands.indexOf(guessIsland);

@@ -23,6 +23,7 @@
 
 	let buttonText = "Guess";
 
+	let boxes = ["", "", "", "", "", ""]
 	let guessParagraph = ["", "", "", "", "", ""];
 	let gpClass = ["", "", "", "", "", ""];
 	let guessDirection = ["", "", "", "", "", ""];
@@ -183,6 +184,7 @@
 			if (isIsland(guess)) {
 				if (isWin(guess)) {
 					gpClass[guessno - 1] = "win";
+					boxes[guessno - 1] = "🟩";
 					guessParagraph[guessno - 1] = guess;
 					attempts = guessno;
 					guessno = 9;
@@ -195,6 +197,10 @@
 
 				if (is_same_region(guessIsland)) {
 					gpClass[guessno - 1] = "close";
+					boxes[guessno - 1] = "🟨";
+				}
+				else {
+					boxes[guessno - 1] = "⬛";
 				}
 
 				const index = Islands.indexOf(guessIsland);
@@ -228,7 +234,7 @@
 			attempts = 'x'
 			}
 			alert('Copied to clipboard.')
-			shareResults(`Sotdle ${day} ${attempts}/6 \nhttps://daily.sotdle.xyz`);
+			shareResults(`Sotdle ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`);
 		}
 	}
 </script>

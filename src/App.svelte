@@ -210,7 +210,7 @@
 
 <main>
 	<header>
-		<img class="logo" src="Sotdle.png" alt="Sotdle" />
+		<img class="logo" src="Sotdle Daily.png" alt="Sotdle" />
 	</header>
 	<body>
 		<img src={imgsrc} alt="island" />

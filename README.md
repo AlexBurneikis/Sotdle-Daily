@@ -4,10 +4,10 @@ Sea of Thieves wordle clone
 inspired by worldle 
 
 daily version
-www.daily.sotdle.xyz
+https://daily.sotdle.xyz
 
 infinite version
-www.sotdle.xyz
+https://www.sotdle.xyz
 
 ## Help
 You get 6 guesses to get the correct answer.

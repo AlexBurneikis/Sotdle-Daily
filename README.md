@@ -1,9 +1,13 @@
 # Sotdle
 Sea of Thieves wordle clone
 
-inspired by worldle
+inspired by worldle 
 
+daily version
 www.daily.sotdle.xyz
+
+infinite version
+www.sotdle.xyz
 
 ## Help
 You get 6 guesses to get the correct answer.

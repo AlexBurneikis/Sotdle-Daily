@@ -8,7 +8,6 @@
 		29, 63, 49, 8, 67, 13, 44, 37, 60, 17, 6, 72, 16, 24, 2, 35, 11, 70, 19,
 		53, 61, 36, 15, 39, 76,
 	];
-	let x;
 
 	let answer;
 	let imgsrc;
@@ -276,7 +275,7 @@
 	</body>
 	<footer>
 		<h6>
-			Alex Burneikis 2022 <a
+			Alex Burneikis <a
 				href="https://github.com/alexburneikis/sotdle-daily">Github</a
 			>,
 			<a
@@ -285,7 +284,7 @@
 			>,
 			<a
 				href="https://sotdle.xyz"
-				>More</a>
+				>Infinite</a>
 		</h6>
 	</footer>
 </main>

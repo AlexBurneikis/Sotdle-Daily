@@ -258,6 +258,16 @@
 	</header>
 	<img src={imgsrc} alt="island" />
 	<body>
+		<input
+			bind:value={guess}
+			list="options"
+			on:focus={focus}
+			on:blur={blur}
+			on:click={click}
+		/>
+		<button class="disable-dbl-tap-zoom" on:click={guessButton}
+			>{buttonText}</button
+		>
 		<p class={gpClass[0]}>
 			{guessParagraph[0]}<span>{guessDirection[0]}</span>
 		</p>
@@ -276,16 +286,6 @@
 		<p class={gpClass[5]}>
 			{guessParagraph[5]}<span>{guessDirection[5]}</span>
 		</p>
-		<input
-			bind:value={guess}
-			list="options"
-			on:focus={focus}
-			on:blur={blur}
-			on:click={click}
-		/>
-		<button class="disable-dbl-tap-zoom" on:click={guessButton}
-			>{buttonText}</button
-		>
 	</body>
 </main>
 
@@ -332,7 +332,7 @@
 	}
 	p {
 		font-family: Sotfont2;
-		font-size: 1.5vh;
+		font-size: calc(1.5vh - env(safe-area-inset-bottom));
 
 		margin: auto;
 		margin-bottom: 2px;
@@ -346,7 +346,7 @@
 	}
 
 	img {
-		height: calc(69vmin - env(safe-area-inset-bottom));
+		height: calc(70vmin - env(safe-area-inset-bottom));
 		display: block;
 		margin: auto;
 		border-radius: 8px;
@@ -359,20 +359,21 @@
 		border-radius: 5px;
 		height: 16%;
 		margin: 0;
-		width: calc(44vmin - env(safe-area-inset-bottom));
-		font-size: 2.4vmin;
+		width: calc(45vmin - env(safe-area-inset-bottom));
+		font-size: calc(2.4vmin - env(safe-area-inset-bottom));
 		border-radius: 5px;
 		border: 0;
 		font-family: Sotfont3;
 		background-color: rgb(181, 165, 153);
 	}
 	button {
+		margin-bottom: 2px;
 		display: inline;
 		vertical-align: top;
 		border-radius: 5px;
 		height: 16%;
 		width: calc(14vmin - env(safe-area-inset-bottom));
-		font-size: 2.5vmin;
+		font-size: calc(2.5vmin - env(safe-area-inset-bottom));
 		padding: 0;
 		border: 0;
 		background-color: rgb(181, 165, 153);

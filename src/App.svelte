@@ -245,10 +245,19 @@
 <main>
 	<header>
 		<img class="logo" src="Sotdle Daily.png" alt="Sotdle" />
+		<h6>
+			Alex Burneikis <a
+				href="https://github.com/alexburneikis/sotdle-daily">Github</a
+			>,
+			<a
+				href="https://github.com/AlexBurneikis/Sotdle-daily/blob/main/README.md"
+				>Help</a
+			>,
+			<a href="https://sotdle.xyz">Infinite</a>
+		</h6>
 	</header>
+	<img src={imgsrc} alt="island" />
 	<body>
-		<img src={imgsrc} alt="island" />
-		<br />
 		<p class={gpClass[0]}>
 			{guessParagraph[0]}<span>{guessDirection[0]}</span>
 		</p>
@@ -267,38 +276,20 @@
 		<p class={gpClass[5]}>
 			{guessParagraph[5]}<span>{guessDirection[5]}</span>
 		</p>
-		<div class="input">
-			<input
-				bind:value={guess}
-				list="options"
-				on:focus={focus}
-				on:blur={blur}
-				on:click={click}
-			/>
-			<button class="disable-dbl-tap-zoom" on:click={guessButton}
-				>{buttonText}</button
-			>
-		</div>
+		<input
+			bind:value={guess}
+			list="options"
+			on:focus={focus}
+			on:blur={blur}
+			on:click={click}
+		/>
+		<button class="disable-dbl-tap-zoom" on:click={guessButton}
+			>{buttonText}</button
+		>
 	</body>
-	<footer>
-		<h6>
-			Alex Burneikis <a
-				href="https://github.com/alexburneikis/sotdle-daily">Github</a
-			>,
-			<a
-				href="https://github.com/AlexBurneikis/Sotdle-daily/blob/main/README.md"
-				>Help</a
-			>,
-			<a href="https://sotdle.xyz">Infinite</a>
-		</h6>
-	</footer>
 </main>
 
 <style>
-	.disable-dbl-tap-zoom {
-		touch-action: manipulation;
-	}
-
 	@font-face {
 		font-family: "Sotfont2";
 		src: url(/sot_fonts/font2.ttf);
@@ -314,73 +305,90 @@
 	span {
 		font-family: Sotfont3;
 	}
-	footer {
-		height: 40px;
-		bottom: 0;
-		position: fixed;
-		width: 240px;
-		font-family: Sotfont4;
-	}
 
 	main {
-		text-align: center;
-		padding: 1em;
-		width: 240px;
 		margin: 0 auto;
-	}
-	header {
-		height: 50px;
+
+		padding: 0;
+		padding-top: 0;
+
+		text-align: center;
 	}
 	.logo {
-		height: 50px;
+		height: calc(6vh - env(safe-area-inset-bottom));
+		min-height: 30px;
 		width: auto;
+		margin: auto;
 	}
-	.input {
-		width: 240px;
-		font-family: Sotfont3;
+	h6 {
+		margin: 0;
+		font-family: Sotfont4;
+	}
+	body {
+		margin-top: 2px;
+		padding: 0;
+		text-align: center;
+		height: calc(20vh - env(safe-area-inset-bottom));
 	}
 	p {
 		font-family: Sotfont2;
-		font-size: 110%;
-		margin-top: 0px;
-		margin-bottom: 5px;
-		background-color: rgb(181, 165, 153);
-		width: 240px;
-		height: 25px;
+		font-size: 1.5vh;
+
+		margin: auto;
+		margin-bottom: 2px;
+
+		width: calc(60vmin - env(safe-area-inset-bottom));
+		height: 12.5%;
+
 		border-radius: 5px;
-	}
-	img {
-		width: 240px;
-		border-radius: 8px;
-	}
-	input {
-		margin: 0px;
-		margin-top: 5px;
-		width: 175px;
-		height: 30px;
-		border-radius: 5px;
-		border: 0;
+
 		background-color: rgb(181, 165, 153);
 	}
 
-	button {
+	img {
+		height: calc(69vmin - env(safe-area-inset-bottom));
+		display: block;
+		margin: auto;
+		border-radius: 8px;
+	}
+
+	input {
+		vertical-align: top;
 		padding: 0;
-		margin: 0px;
-		margin-top: 5px;
-		width: 60px;
-		height: 30px;
-		border: 0;
+		padding-left: 5px;
 		border-radius: 5px;
+		height: 16%;
+		margin: 0;
+		width: calc(44vmin - env(safe-area-inset-bottom));
+		font-size: 2.4vmin;
+		border-radius: 5px;
+		border: 0;
+		font-family: Sotfont3;
 		background-color: rgb(181, 165, 153);
+	}
+	button {
+		display: inline;
+		vertical-align: top;
+		border-radius: 5px;
+		height: 16%;
+		width: calc(14vmin - env(safe-area-inset-bottom));
+		font-size: 2.5vmin;
+		padding: 0;
+		border: 0;
+		background-color: rgb(181, 165, 153);
+		font-family: Sotfont3;
 	}
 
 	.win {
 		color: black;
 		background-color: rgb(0, 255, 0);
 	}
-
 	.close {
 		color: black;
 		background-color: yellow;
+	}
+
+	.disable-dbl-tap-zoom {
+		touch-action: manipulation;
 	}
 </style>

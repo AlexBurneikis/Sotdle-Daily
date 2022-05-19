@@ -9,6 +9,17 @@
 		53, 61, 36, 15, 39, 76,
 	];
 
+	let easyMode = false;
+
+	function overlayOn() {
+		document.getElementById("overlay").style.display = "block";
+		easyMode = true;
+	}
+
+	function overlayOff() {
+		document.getElementById("overlay").style.display = "none";
+	}
+
 	let answer;
 	let imgsrc;
 	let attempts;
@@ -232,10 +243,17 @@
 			if (attempts === 7) {
 				attempts = "x";
 			}
-			alert("Copied to clipboard.");
-			shareResults(
-				`Sotdle ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`
-			);
+			if (easyMode) {
+				alert("Copied to clipboard.");
+				shareResults(
+					`Sotdle Easy Mode ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`
+				);
+			} else {
+				alert("Copied to clipboard.");
+				shareResults(
+					`Sotdle ${day} ${attempts}/6 \n${boxes[0]}${boxes[1]}${boxes[2]}${boxes[3]}${boxes[4]}${boxes[5]}\nhttps://daily.sotdle.xyz`
+				);
+			}
 		}
 	}
 </script>
@@ -256,8 +274,14 @@
 			<a href="https://sotdle.xyz">Infinite</a>
 		</h6>
 	</header>
-	<img src={imgsrc} alt="island" />
+	<div class="container">
+		<img src={imgsrc} alt="island" />
+		<button on:click={overlayOn}>Easy Mode</button>
+	</div>
 	<body>
+		<div on:click={overlayOff} id="overlay">
+			<img src="EasyModeMap.png" alt="easymodemap" />
+		</div>
 		<input
 			bind:value={guess}
 			list="options"
@@ -304,6 +328,42 @@
 	}
 	span {
 		font-family: Sotfont3;
+	}
+
+	.container button {
+		position: absolute;
+		font-size: 2vw;
+		padding-left: 0.5vw;
+		padding-right: 0.5vw;
+		top: 8%;
+		left: 1%;
+		height: auto;
+		width: auto;
+		border-radius: 5px;
+	}
+
+	#overlay {
+		position: fixed; /* Sit on top of the page content */
+		display: none; /* Hidden by default */
+		width: 100%; /* Full width (cover the whole page) */
+		height: 100%; /* Full height (cover the whole page) */
+		padding-top: 5vh;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(
+			0,
+			0,
+			0,
+			0.5
+		); /* Black background with opacity */
+		z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		cursor: pointer; /* Add a pointer on hover */
+	}
+	#overlay img {
+		width: 90vmin;
+		height: 90vmin;
 	}
 
 	main {
